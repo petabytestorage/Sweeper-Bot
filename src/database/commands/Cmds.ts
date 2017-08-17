@@ -5,6 +5,7 @@ import MuteModel from '../models/Mute';
 import WarnModel from '../models/Warn';
 import NotesModel from '../models/Notes';
 import BanModel from '../models/Ban';
+import UsersModel from '../models/Users';
 
 export class MuteCommands extends Command {
 	public constructor(connection: any) {
