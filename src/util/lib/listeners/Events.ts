@@ -24,8 +24,7 @@ export class Events {
 
 	@on('messageReactionAdd')
 	private async _onReaction(reaction: MessageReaction, user: User): Promise<any> {
-		console.log('hai, reaction')
-		console.log(user)
+
 		if (user.id === this._client.user.id)
 			return;
 
@@ -38,18 +37,13 @@ export class Events {
 		let roleMessageId: string = await guildStorage.get('Role Reaction Message');
 
 		let roles = this.fetchRoles(reaction);
-		console.log('here');
-		console.log(reaction.message.id);
-		console.log(roleMessageId);
+
 		// Role Reaction Message
 		if (reaction.message.id === roleMessageId) {
 
 			let role_name = reaction.emoji.name;
-			console.log(role_name)
-			console.log(roles)
-
 			let role = roles[role_name];
-			console.log(role)
+
 			if (role) {
 				if (reactionAuthor.roles.has(role.id)) return reaction.remove(user).then(null,Constants.reportError);
 				else return await reactionAuthor.addRole(role).then(null,Constants.reportError);

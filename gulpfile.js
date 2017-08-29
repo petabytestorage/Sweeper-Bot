@@ -45,10 +45,10 @@ gulp.task('default', ['compile'], () => {
 gulp.task('serve', function () {
   nodemon({
     script: './bin/sweeper.js'
-  , ext: 'ts'
+  , ext: 'ts json'
   , watch: 'src'
   , ignore: ['./bin/**.*']
-  , env: { 'NODE_ENV': 'development' }
+  // , env: { 'NODE_ENV': 'development' }
   , tasks: ['compile']
   })
 })

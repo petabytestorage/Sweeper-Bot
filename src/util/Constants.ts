@@ -10,6 +10,7 @@ export type BotConstants = {
 	serverId: string;
 	modChannelId: string;
 	logChannelId: string;
+	defaultGuildId: string;
 
 	// RegExp
 	platformRegExp: RegExp;
@@ -41,6 +42,7 @@ export type BotConstants = {
 	SiaRoles: SiaRole[];
 	PostText: string;
 	serverInvite: string;
+	ExcludedRoles: string[];
 
 	reportError: (err: any) => void;
 };
@@ -118,6 +120,9 @@ Constants.SiaRoles = [
 	{ display_name: 'Reddit Feed', emoji: '<:reddit:347880473738870787>', name: 'reddit' },
 
 ];
+
+Constants.defaultGuildId = config.defaultGuildId || '';
+Constants.ExcludedRoles = ['bad role', '@everyone', 'sweeper-test-bot']
 
 
 Constants.serverInvite = 'https://discord.gg/XDfY2bV';
